@@ -26,3 +26,10 @@ frontend:
           value: "application/json"
         - key: "Cache-Control"
           value: "max-age=3600"
+        - key: "X-Content-Type-Options"
+          value: "nosniff"
+  redirects:
+    - source: "/.well-known/apple-app-site-association/"
+      target: "/.well-known/apple-app-site-association"
+      status: "301"
+      condition: null
