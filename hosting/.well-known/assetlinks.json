@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.anyware.thedrive",
+      "sha256_cert_fingerprints": [
+        "78:9E:17:4E:71:48:8F:5F:20:09:EC:24:E1:20:5D:4D:B8:EA:72:8D:0A:01:94:D6:39:B8:04:7D:44:73:6F:46"
+      ]
+    }
+  }
+]

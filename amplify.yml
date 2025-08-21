@@ -1,0 +1,15 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "No prebuild needed"
+    build:
+      commands:
+        - echo "No build step; static hosting"
+  artifacts:
+    baseDirectory: hosting
+    files:
+      - "**/*"
+  cache:
+    paths: []
