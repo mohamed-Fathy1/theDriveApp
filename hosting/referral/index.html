@@ -103,18 +103,36 @@
     </div>
 
     <script>
-      // Check if we're on iOS and try to open the app
-      function tryOpenApp() {
-        // Only run on iOS devices
+      // Function to open the app or redirect to App Store
+      function openAppOrStore() {
+        // Check if we're on iOS
         if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
           // Try to open the app using Universal Link
-          // This will either open the app or show the Smart App Banner
-          console.log("Attempting to open app...");
+          const appUrl = "https://thedriveapp.anyware.software/referral";
+
+          // Create a hidden iframe to trigger the Universal Link
+          const iframe = document.createElement("iframe");
+          iframe.style.display = "none";
+          iframe.src = appUrl;
+          document.body.appendChild(iframe);
+
+          // If app doesn't open after 1 second, redirect to App Store
+          setTimeout(function () {
+            // Remove the iframe
+            document.body.removeChild(iframe);
+            // Redirect to App Store
+            window.location.href =
+              "https://apps.apple.com/eg/app/the-drive-ordering-app/id6743441053";
+          }, 1000);
+        } else {
+          // For non-iOS devices, redirect to App Store immediately
+          window.location.href =
+            "https://apps.apple.com/eg/app/the-drive-ordering-app/id6743441053";
         }
       }
 
       // Run when page loads
-      document.addEventListener("DOMContentLoaded", tryOpenApp);
+      document.addEventListener("DOMContentLoaded", openAppOrStore);
     </script>
   </body>
 </html>
